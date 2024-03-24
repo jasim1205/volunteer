@@ -143,6 +143,12 @@
                 </a>
               </li>
               <li class="sidebar-item">
+                <a href="{{route('activity.index')}}" class="sidebar-link">
+                  <i class="bi bi-stack"></i>
+                  <span>Activity</span>
+                </a>
+              </li>
+              <li class="sidebar-item">
                 <a href="{{route('logOut')}}" class="sidebar-link">
                   <i class="bi bi-stack"></i>
                   <span>Logout</span>
