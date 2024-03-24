@@ -12,4 +12,9 @@ class Activity extends Model
     public function organization(){
         return $this->belongsTo(Organization::class);
     }
+
+    public function volunteeractivity(){
+        return $this->hasMany(volunteerActivity::class);
+    }
+
 }

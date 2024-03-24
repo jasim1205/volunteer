@@ -192,6 +192,10 @@
                                 class="icon icon-app-store"></i><span class="nav-text">Skill</span></a>
                         
                     </li>
+                    <li><a class="has-arrow" href="{{route('volactivity.index')}}" aria-expanded="false"><i
+                                class="icon icon-app-store"></i><span class="nav-text">Join Activity</span></a>
+                        
+                    </li>
                     <li><a class="has-arrow" href="{{route('userlogOut')}}" aria-expanded="false"><i
                                 class="icon icon-app-store"></i><span class="nav-text">Logout</span></a>
                         

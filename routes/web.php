@@ -13,6 +13,7 @@ use App\Http\Controllers\vulunteerauthcontroller as userauth;
 use App\Http\Controllers\VolunteerController as volunteer;
 use App\Http\Controllers\BlogController as blog;
 use App\Http\Controllers\SkillController as skill;
+use App\Http\Controllers\VolunteerActivityController as volactivity;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,7 +47,7 @@ Route::middleware(['checkuser'])->prefix('user')->group(function(){
     Route::get('dashboard', [volunteer::class, 'index'])->name('userdashboard');
     Route::resource('blog', blog::class);
     Route::resource('skill', skill::class);
-    
+    Route::resource('volactivity', volactivity::class);
 });
 
 
