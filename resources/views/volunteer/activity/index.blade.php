@@ -20,18 +20,20 @@
                     <tr>
                         <td>{{++$loop->index}}</td>
                         <td>{{$b->activity->name}}</td>
-                        <td>{{$b->participate}}</td>
-                        <td></td>
+                        <td>@if($b->participate==1){{__('Yes')}} @else{{__('No')}} @endif
+                        </td>
                         <td>
-                            <a href="{{route('volactivity.edit',encryptor('encrypt',$b->id))}}" class=""><i class="fa fa-edit text-primary">Edit</i>
-                            </a>
-                            <form action="{{ route('volactivity.destroy', encryptor('encrypt',$b->id))}}" method="post" onsubmit="return confirm('Are you sure you want to delete this item?');">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" style="border:none;background:none;">
-                                    <span class=""><i class="fa fa-trash text-danger">Delete</i></span>
-                                </button>
-                            </form>
+                            <div class="d-flex">
+                                <a href="{{route('volactivity.edit',encryptor('encrypt',$b->id))}}" class=""><i class="fa fa-edit text-primary"></i>
+                                </a>
+                                <form action="{{ route('volactivity.destroy', encryptor('encrypt',$b->id))}}" method="post" onsubmit="return confirm('Are you sure you want to delete this item?');">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" style="border:none;background:none;">
+                                        <span class=""><i class="fa fa-trash text-danger"></i></span>
+                                    </button>
+                                </form>
+                            </div>
                         </td>
                     </tr>
                     @endforeach

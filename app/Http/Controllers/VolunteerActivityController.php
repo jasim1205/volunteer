@@ -14,7 +14,7 @@ class VolunteerActivityController extends Controller
      */
     public function index()
     {
-        $data = volunteerActivity::where('volunteer_id',currentUserId());
+        $data = volunteerActivity::where('volunteer_id',currentUserId())->get();
         return view('volunteer.activity.index',compact('data'));
     }
 
@@ -67,9 +67,9 @@ class VolunteerActivityController extends Controller
     public function update(Request $request, $id)
     {
         $volactivity = volunteerActivity::findOrFail(encryptor('decrypt',$id));
-        $data->activity_id = $request->activity_id;
-        $data->participate = $request->participate;
-        if($data->save()){
+        $volactivity->activity_id = $request->activity_id;
+        $volactivity->participate = $request->participate;
+        if($volactivity->save()){
             $this->notice::success('data successfully Updated');
             return redirect()->route('volactivity.index');
         }

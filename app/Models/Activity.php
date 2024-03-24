@@ -13,7 +13,7 @@ class Activity extends Model
         return $this->belongsTo(Organization::class);
     }
 
-    public function volunteeractivity(){
+    public function volactivity(){
         return $this->hasMany(volunteerActivity::class,'activity_id','id');
     }
 
