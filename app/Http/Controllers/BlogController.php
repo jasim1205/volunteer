@@ -43,6 +43,7 @@ class BlogController extends Controller
             $blog->blog_image = $imageName;
         };
         if($blog->save()){
+            $this->notice::success('data successfully saved');
             return redirect()->route('blog.index');
         }
     }
@@ -80,6 +81,7 @@ class BlogController extends Controller
             $blog->blog_image = $imageName;
         };
         if($blog->save()){
+            $this->notice::success('data successfully Updated');
             return redirect()->route('blog.index');
         }
     }
@@ -91,6 +93,7 @@ class BlogController extends Controller
     {
         $blog = Blog::findOrFail(encryptor('decrypt',$id));
         if($blog->delete()){
+            $this->notice::warning('data successfully Deleted');
             return redirect()->route('blog.index');
         }
     }

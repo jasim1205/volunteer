@@ -26,7 +26,7 @@
                         <td>
                             <a href="{{route('blog.edit',encryptor('encrypt',$b->id))}}" class=""><i class="fa fa-edit text-primary">Edit</i>
                                         </a>
-                                        <form action="{{ route('blog.destroy', encryptor('encrypt',$b->id))}}" method="post">
+                                        <form action="{{ route('blog.destroy', encryptor('encrypt',$b->id))}}" method="post" onsubmit="return confirm('Are you sure you want to delete this item?');">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" style="border:none;background:none;">

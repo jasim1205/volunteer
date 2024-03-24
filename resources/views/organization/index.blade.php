@@ -9,7 +9,7 @@
     <div class="page-title">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
-                <h3>Job List</h3>
+                <h3>Organization List</h3>
             </div>
             <div class="col-12 col-md-6 order-md-2 order-first">
                 <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
@@ -18,7 +18,7 @@
                             <a href="{{route('dashboard')}}">Dashboard</a>
                         </li>
                         <li class="breadcrumb-item active" aria-current="page">
-                            job
+                            Organization
                         </li>
                     </ol>
                 </nav>
@@ -57,16 +57,16 @@
                                 <td>{{$p->address}}</td>
                                 
                                 <td class="white-space-nowrap">
-                                    <a href="{{route('organization.edit',encryptor('encrypt',$p->id))}}">
-                                        <i class="fa fa-edit"></i>
+                                    <a href="{{route('organization.edit',encryptor('encrypt',$p->id))}}" class="text-warning">
+                                        <i class="fa fa-edit">Edit</i>
                                     </a>
-                                    <a href="javascript:void()" onclick="$('#form{{$p->id}}').submit()">
-                                        <i class="fa fa-trash"></i>
-                                    </a>
-                                    <form id="form{{$p->id}}" action="{{route('organization.destroy',encryptor('encrypt',$p->id))}}" method="post">
-                                        @csrf
-                                        @method('delete')
-                                    </form>
+                                     <form action="{{ route('organization.destroy', encryptor('encrypt',$p->id))}}" method="post" onsubmit="return confirm('Are you sure you want to delete this item?');">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" style="border:none;background:none;">
+                                        <span class=""><i class="fa fa-trash text-danger">Delete</i></span>
+                                    </button>
+                                </form>
                                 </td>
                             </tr>
                             @empty
