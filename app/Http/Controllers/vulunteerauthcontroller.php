@@ -22,15 +22,18 @@ class vulunteerauthcontroller extends Controller
             $volunteer->phone=$request->phone;
             $volunteer->email=$request->email;
             $volunteer->password=Hash::make($request->password);
-            if($volunteer->save())
-                return redirect()->route('userlogin')->with('success','Successfully Registred');
-            else
-                return redirect()->route('userlogin')->with('danger','Please try again');
+            if($volunteer->save()){
+                $this->notice::success('Successfully Registred');
+                return redirect()->route('userlogin');
+            }else{
+                $this->notice::success('Please try again');
+                return redirect()->route('userlogin');
+            }
         }catch(Exception $e){
             dd($e);
-            return redirect()->route('userlogin')->with('danger','Please try again');
+            $this->notice::success('Please try again');
+            return redirect()->route('userlogin');
         }
-
     }
     public function signInForm(){
         return view('authvolunteer.login');

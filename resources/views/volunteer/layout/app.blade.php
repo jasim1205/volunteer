@@ -12,9 +12,9 @@
     <link rel="stylesheet" href="{{asset('public/volunteer/assets/vendor/owl-carousel/css/owl.theme.default.min.css')}}">
     <link href="{{asset('public/volunteer/assets/vendor/jqvmap/css/jqvmap.min.css')}}" rel="stylesheet">
     <link href="{{asset('public/volunteer/assets/css/style.css')}}" rel="stylesheet">
-
-
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
 </head>
 
 <body>
@@ -31,9 +31,9 @@
         ***********************************-->
         <div class="nav-header">
             <a href="index.html" class="brand-logo">
-                <img class="logo-abbr" src="./images/logo.png" alt="">
-                <img class="logo-compact" src="./images/logo-text.png" alt="">
-                <img class="brand-title" src="./images/logo-text.png" alt="">
+                <img class="logo-abbr" src="{{asset('public/volunteer/assets/images/logo.png')}}" alt="">
+                <img class="logo-compact" src="{{asset('public/volunteer/assets/images/logo-text.png')}}" alt="">
+                <img class="brand-title" src="{{asset('public/volunteer/assets/images/logo-text.png')}}" alt="">
             </a>
 
             <div class="nav-control">
@@ -133,7 +133,7 @@
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right">
                                     <a href="./app-profile.html" class="dropdown-item">
-                                        <i class="icon-user"></i>
+                                        <i class="fa fa-user"></i>
                                         <span class="ml-2">Profile </span>
                                     </a>
                                     <a href="./email-inbox.html" class="dropdown-item">
@@ -188,6 +188,10 @@
                                 class="icon icon-app-store"></i><span class="nav-text">Blog</span></a>
                         
                     </li>
+                    <li><a class="has-arrow" href="{{route('skill.index')}}" aria-expanded="false"><i
+                                class="icon icon-app-store"></i><span class="nav-text">Skill</span></a>
+                        
+                    </li>
                     <li><a class="has-arrow" href="{{route('userlogOut')}}" aria-expanded="false"><i
                                 class="icon icon-app-store"></i><span class="nav-text">Logout</span></a>
                         
@@ -207,9 +211,29 @@
             Content body start
         ***********************************-->
         <div class="content-body">
-            <!-- row -->
-            @yield('content')
+            <div class="container-fluid">
+                <div class="row page-titles mx-0">
+                    <div class="col-sm-6 p-md-0">
+                        <div class="welcome-text">
+                            <h4>@yield('title')</h4>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Dashboard</a></li>
+                            <li class="breadcrumb-item active"><a href="javascript:void(0)">@yield('page')</a></li>
+                        </ol>
+                    </div>
+                </div>
+                <!-- row -->
+                @yield('content')
+                
+            </div>
         </div>
+        {{-- <div class="content-body">
+           
+            @yield('content')
+        </div> --}}
         <!--**********************************
             Content body end
         ***********************************-->
@@ -273,6 +297,10 @@
     <script src="{{asset('public/volunteer/assets/vendor/jqvmap/js/jquery.vmap.usa.js')}}"></script>
     <script src="{{asset('public/volunteer/assets/vendor/jquery.counterup/jquery.counterup.min.js')}}"></script>
     <script src="{{asset('public/volunteer/assets/js/dashboard/dashboard-1.js')}}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+    {!! Toastr::message() !!}
 </body>
 
 </html>

@@ -1,10 +1,13 @@
 @extends('volunteer.layout.app')
+@section('title',trans('Blog'))
+@section('page',trans('Blog'))
 @section('content')
 <div class="container-fluid">
     <div class="row">
-        
         <div class="col-sm-12">
-            <a href="{{route('blog.create')}}" class="btn btn-primary"><i class="fa fa-plus">ADD NEW</i></a>
+            <div>
+                <a href="{{route('blog.create')}}" class="btn btn-success mb-2"><i class="fa fa-plus">Add New</i></a>
+            </div>
             <div class="table-responsive">
                 <table class="table table-striped">
                     <tr>

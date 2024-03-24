@@ -13,4 +13,7 @@ class volunteer extends Model
     public function blog(){
         return $this->hasMany(Blog::class);
     }
+    public function skill(){
+        return $this->hasMany(Skill::class);
+    }
 }
