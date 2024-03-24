@@ -31,6 +31,7 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->all());
         $blog = new Blog;
         $blog->title = $request->title;
         $blog->blog_details = $request->blog_details;
@@ -40,7 +41,7 @@ class BlogController extends Controller
             $request->blog_image->extension();
             $request->blog_image->move(public_path('uploads/blog'),$imageName);
             $blog->blog_image = $imageName;
-        }
+        };
         if($blog->save()){
             return redirect()->route('blog.index');
         }
@@ -57,24 +58,40 @@ class BlogController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Blog $blog)
+    public function edit($id)
     {
-        //
+        $blog = Blog::findOrFail(encryptor('decrypt',$id));
+        return view('volunteer.blog.edit',compact('blog'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Blog $blog)
+    public function update(Request $request, $id)
     {
-        //
+        $blog = Blog::findOrFail(encryptor('decrypt',$id));
+        $blog->title = $request->title;
+        $blog->blog_details = $request->blog_details;
+        $blog->volunteer_id= currentUserId();
+        if($request->hasFile('blog_image')){
+            $imageName = rand(111,999).time().'.'.
+            $request->blog_image->extension();
+            $request->blog_image->move(public_path('uploads/blog'),$imageName);
+            $blog->blog_image = $imageName;
+        };
+        if($blog->save()){
+            return redirect()->route('blog.index');
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Blog $blog)
+    public function destroy($id)
     {
-        //
+        $blog = Blog::findOrFail(encryptor('decrypt',$id));
+        if($blog->delete()){
+            return redirect()->route('blog.index');
+        }
     }
 }

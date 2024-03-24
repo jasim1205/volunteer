@@ -3,17 +3,18 @@
 <div class="container-fluid">
     <div class="row">
         <div class="card">
-            <form class="form" method="post"action="{{route('blog.store')}}" enctype="multipart/form-data">
+            <form class="form" method="post"action="{{route('blog.update',encryptor('encrypt',$blog->id))}}" enctype="multipart/form-data">
                 @csrf
+                @method('PATCH')
                 <div id="test-nl-1" role="tabpanel" class="bs-stepper-pane" aria-labelledby="stepper2trigger1">
                     <div class="row g-3">
                         <div class="col-12 col-lg-6">
                             <label class="col-sm-3 col-form-label"><strong>Blog Tilte </strong><i class="text-danger">*</i></label>
-                            <input type="text" id="" class="form-control shadow-lg" value="{{ old('title')}}" name="title">
+                            <input type="text" id="" class="form-control shadow-lg" value="{{ old('title',$blog->title)}}" name="title">
                         </div>
                         <div class="col-12 col-lg-6">
                             <label class="col-sm-3 col-form-label"><strong>Blog Details</strong></label>
-                            <input type="text" id="blog_details" class="form-control shadow-lg" value="{{ old('blog_details')}}" name="blog_details" >
+                            <input type="text" id="blog_details" class="form-control shadow-lg" value="{{ old('blog_details',$blog->blog_details)}}" name="blog_details" >
                         </div>
                         <div class="col-12 col-lg-6">
                             <label class="col-sm-3 col-form-label"><strong>Blog Imgae</strong></label>
