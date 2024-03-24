@@ -14,6 +14,6 @@ class volunteerActivity extends Model
         return $this->belongsTo(volunteer::class);
     }
     public function activity(){
-        return $this->belongsTo(Activity::class);
+        return $this->belongsTo(Activity::class,'activity_id','id');
     }
 }

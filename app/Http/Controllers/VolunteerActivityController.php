@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\volunteerActivity;
 use App\Models\volunteer;
+use App\Models\Activity;
 use Illuminate\Http\Request;
 
 class VolunteerActivityController extends Controller
@@ -22,7 +23,8 @@ class VolunteerActivityController extends Controller
      */
     public function create()
     {
-        //
+        $activity = Activity::get();
+        return view('volunteer.activity.create',compact('activity'));
     }
 
     /**
@@ -30,7 +32,14 @@ class VolunteerActivityController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = new volunteerActivity;
+        $data->volunteer_id = currentUserId();
+        $data->activity_id = $request->activity_id;
+        $data->participate = $request->participate;
+        if($data->save()){
+            $this->notice::success('data successfully saved');
+            return redirect()->route('volactivity.index');
+        }
     }
 
     /**
@@ -44,24 +53,36 @@ class VolunteerActivityController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(volunteerActivity $volunteerActivity)
+    public function edit($id)
     {
-        //
+        $volactivity = volunteerActivity::findOrFail(encryptor('decrypt',$id));
+        $activity = Activity::get();
+        return view('volunteer.activity.edit',compact('volactivity','activity'));
+
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, volunteerActivity $volunteerActivity)
+    public function update(Request $request, $id)
     {
-        //
+        $volactivity = volunteerActivity::findOrFail(encryptor('decrypt',$id));
+        $data->activity_id = $request->activity_id;
+        $data->participate = $request->participate;
+        if($data->save()){
+            $this->notice::success('data successfully Updated');
+            return redirect()->route('volactivity.index');
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(volunteerActivity $volunteerActivity)
+    public function destroy($id)
     {
-        //
+        $volactivity = volunteerActivity::findOrFail(encryptor('decrypt',$id));
+        if($volactivity->delete()){
+            return redirect()->route('volactivity.index');
+        }
     }
 }

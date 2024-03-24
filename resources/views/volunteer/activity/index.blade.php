@@ -12,21 +12,20 @@
                 <table class="table table-striped">
                     <tr>
                         <th>#</th>
-                        <th>Title</th>
-                        <th>Details</th>
-                        <th>Image</th>
+                        <th>Activity Name</th>
+                        <th>Join Status</th>
                         <th>Action</th>
                     </tr>
                     @foreach($data as $b)
                     <tr>
                         <td>{{++$loop->index}}</td>
-                        <td>{{$b->title}}</td>
-                        <td>{{$b->blog_details}}</td>
+                        <td>{{$b->activity->name}}</td>
+                        <td>{{$b->participate}}</td>
                         <td></td>
                         <td>
-                            <a href="{{route('blog.edit',encryptor('encrypt',$b->id))}}" class=""><i class="fa fa-edit text-primary">Edit</i>
+                            <a href="{{route('volactivity.edit',encryptor('encrypt',$b->id))}}" class=""><i class="fa fa-edit text-primary">Edit</i>
                             </a>
-                            <form action="{{ route('blog.destroy', encryptor('encrypt',$b->id))}}" method="post" onsubmit="return confirm('Are you sure you want to delete this item?');">
+                            <form action="{{ route('volactivity.destroy', encryptor('encrypt',$b->id))}}" method="post" onsubmit="return confirm('Are you sure you want to delete this item?');">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" style="border:none;background:none;">

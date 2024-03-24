@@ -14,7 +14,7 @@ class Activity extends Model
     }
 
     public function volunteeractivity(){
-        return $this->hasMany(volunteerActivity::class);
+        return $this->hasMany(volunteerActivity::class,'activity_id','id');
     }
 
 }
