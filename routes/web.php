@@ -6,6 +6,7 @@ use App\Http\Controllers\Backend\UserController as user;
 use App\Http\Controllers\Backend\RoleController as role;
 use App\Http\Controllers\Backend\DashboardController as dashboard;
 use App\Http\Controllers\Backend\PermissionController as permission;
+use App\Http\Controllers\Backend\OrganizationController as organization;
 
 use App\Http\Controllers\vulunteerauthcontroller as userauth;
 use App\Http\Controllers\VolunteerController as volunteer;
@@ -31,6 +32,7 @@ Route::get('/logout', [auth::class,'signOut'])->name('logOut');
 Route::middleware(['checkauth'])->prefix('admin')->group(function () {
     Route::get('dashboard', [dashboard::class, 'index'])->name('dashboard');
     Route::resource('user', user::class);
+    Route::resource('organization', organization::class);
 });
 Route::get('/user/register', [userauth::class,'signUpForm'])->name('userregister');
 Route::post('user/register', [userauth::class,'signUpStore'])->name('userregister.store');
