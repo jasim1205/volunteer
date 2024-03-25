@@ -51,7 +51,7 @@ Route::middleware(['checkuser'])->prefix('user')->group(function(){
     Route::get('dashboard', [volunteer::class, 'index'])->name('userdashboard');
     Route::get('profile', [volunteer::class, 'myProfile'])->name('myProfile');
     Route::get('profile_edit', [volunteer::class, 'profile_edit'])->name('profile_edit');
-    Route::get('profile/save', [volunteer::class, 'save_profile'])->name('save_profile');
+    Route::post('profile/save', [volunteer::class, 'save_profile'])->name('save_profile');
     Route::resource('blog', blog::class);
     Route::resource('skill', skill::class);
     Route::resource('volactivity', volactivity::class);

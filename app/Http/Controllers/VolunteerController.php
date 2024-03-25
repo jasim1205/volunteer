@@ -27,8 +27,8 @@ class VolunteerController extends Controller
     public function save_profile(Request $request)
     {
         try {
-            $user=Client::find(currentUserId());
-            $user->name = $request->fname;
+            $user=volunteer::find(currentUserId());
+            $user->name = $request->name;
             $user->email = $request->email;
             $user->phone = $request->phone;
             $user->gender = $request->gender;
@@ -38,8 +38,8 @@ class VolunteerController extends Controller
                 $user->image = $imageName;
             }
             if ($user->save()){
-                $this->setSession($user);
-                return redirect()->back()->with('success', 'Data Saved');
+                $this->notice::success('Profile Successfully Updated');
+                return redirect()->route('myProfile');
             }
         } catch (Exception $e) {
             // dd($e);

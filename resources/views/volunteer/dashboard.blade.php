@@ -57,7 +57,7 @@
         </div>
         <!-- /# column -->
     </div>
-    <div class="row">
+    {{-- <div class="row">
         <div class="col-xl-8 col-lg-8 col-md-8">
             <div class="card">
                 <div class="card-header">
@@ -564,7 +564,6 @@
                 </div>
             </div>
         </div>
-    </div>
-
+    </div> --}}
 </div>
 @endsection

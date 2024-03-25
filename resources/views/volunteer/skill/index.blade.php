@@ -1,6 +1,6 @@
 @extends('volunteer.layout.app')
-@section('title',trans('Blog'))
-@section('page',trans('Blog'))
+@section('title',trans('Skill'))
+@section('page',trans('Skill'))
 @section('content')
 <div class="container-fluid">
     <div class="row">

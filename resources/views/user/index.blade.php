@@ -54,7 +54,7 @@
                                     @if($p->gender==1){{ 'Male' }}@else{{ 'Female' }}@endif
                                 </td>
                                 <td>
-                                    <img src="{{ asset('public/uploads/volunteer.',$p->image) }}" alt="">
+                                    <img src="{{ asset('public/uploads/user/'.$p->image) }}" width="100px" alt="">
                                 </td>
                                 <td>
                                     @if($p->status==1){{ 'Active' }}@else{{ 'Inactive' }}@endif
