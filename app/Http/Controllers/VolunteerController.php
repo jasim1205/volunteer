@@ -15,7 +15,37 @@ class VolunteerController extends Controller
         $user = volunteer::find(currentUserId());
         return view('volunteer.dashboard',compact('user'));
     }
-
+    public function myProfile()
+    {
+        $user = volunteer::find(currentUserId());
+        return view('volunteer.user.profile', compact('user'));
+    }
+    public function profile_edit(){
+        $user = volunteer::find(currentUserId());
+        return view('volunteer.user.edit', compact('user'));
+    }
+    public function save_profile(Request $request)
+    {
+        try {
+            $user=Client::find(currentUserId());
+            $user->name = $request->fname;
+            $user->email = $request->email;
+            $user->phone = $request->phone;
+            $user->gender = $request->gender;
+            if ($request->hasFile('image')) {
+                $imageName = rand(111, 999) . time() . '.' . $request->image->extension();
+                $request->image->move(public_path('uploads/user'), $imageName);
+                $user->image = $imageName;
+            }
+            if ($user->save()){
+                $this->setSession($user);
+                return redirect()->back()->with('success', 'Data Saved');
+            }
+        } catch (Exception $e) {
+            // dd($e);
+            return redirect()->back()->withInput()->with('error', 'Please try again');
+        }
+    }
     /**
      * Show the form for creating a new resource.
      */

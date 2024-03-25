@@ -8,6 +8,7 @@ use App\Http\Controllers\Backend\DashboardController as dashboard;
 use App\Http\Controllers\Backend\PermissionController as permission;
 use App\Http\Controllers\Backend\OrganizationController as organization;
 use App\Http\Controllers\Backend\ActivityController as activity;
+use App\Http\Controllers\Backend\VolunteerController;
 
 use App\Http\Controllers\vulunteerauthcontroller as userauth;
 use App\Http\Controllers\VolunteerController as volunteer;
@@ -36,6 +37,9 @@ Route::middleware(['checkauth'])->prefix('admin')->group(function () {
     Route::resource('user', user::class);
     Route::resource('organization', organization::class);
     Route::resource('activity', activity::class);
+    Route::get('user_list',[VolunteerController::class,'user_list'])->name('user.list');
+    Route::get('user_edit/{id}',[VolunteerController::class,'user_edit'])->name('user.edit');
+    Route::post('user_edit/{id}',[VolunteerController::class,'user_update'])->name('user_update');
 });
 Route::get('/user/register', [userauth::class,'signUpForm'])->name('userregister');
 Route::post('user/register', [userauth::class,'signUpStore'])->name('userregister.store');
@@ -45,6 +49,9 @@ Route::get('/user/logout', [userauth::class,'signOut'])->name('userlogOut');
 
 Route::middleware(['checkuser'])->prefix('user')->group(function(){
     Route::get('dashboard', [volunteer::class, 'index'])->name('userdashboard');
+    Route::get('profile', [volunteer::class, 'myProfile'])->name('myProfile');
+    Route::get('profile_edit', [volunteer::class, 'profile_edit'])->name('profile_edit');
+    Route::get('profile/save', [volunteer::class, 'save_profile'])->name('save_profile');
     Route::resource('blog', blog::class);
     Route::resource('skill', skill::class);
     Route::resource('volactivity', volactivity::class);

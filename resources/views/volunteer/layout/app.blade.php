@@ -162,12 +162,8 @@
             <div class="quixnav-scroll">
                 <ul class="metismenu" id="menu">
                     <li class="nav-label first">Main Menu</li>
-                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
-                                class="icon icon-single-04"></i><span class="nav-text">Dashboard</span></a>
-                        <ul aria-expanded="false">
-                            <li><a href="./index.html">Dashboard 1</a></li>
-                            <li><a href="./index2.html">Dashboard 2</a></li>
-                        </ul>
+                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                        <i class="icon icon-single-04"></i><span class="nav-text">Dashboard</span></a>
                     </li>
                     <li class="nav-label">Apps</li>
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
@@ -184,9 +180,11 @@
                             <li><a href="./app-calender.html">Calendar</a></li>
                         </ul>
                     </li>
-                    <li><a class="has-arrow" href="{{route('blog.index')}}" aria-expanded="false"><i
-                                class="icon icon-app-store"></i><span class="nav-text">Blog</span></a>
-                        
+                    <li><a class="has-arrow" href="{{route('myProfile')}}" aria-expanded="false">
+                        <i class="icon icon-app-store"></i><span class="nav-text">Profile</span></a>
+                    </li>
+                    <li><a class="has-arrow" href="{{route('blog.index')}}" aria-expanded="false">
+                        <i class="icon icon-app-store"></i><span class="nav-text">Blog</span></a>
                     </li>
                     <li><a class="has-arrow" href="{{route('skill.index')}}" aria-expanded="false"><i
                                 class="icon icon-app-store"></i><span class="nav-text">Skill</span></a>
