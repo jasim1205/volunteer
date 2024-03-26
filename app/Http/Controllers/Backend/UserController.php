@@ -51,7 +51,6 @@ class UserController extends Controller
                 $request->image->move(public_path('uploads/users'), $imageName);
                 $data->image=$imageName;
             }
-
             if($data->save()){
                 $this->notice::success('Successfully saved');
                 return redirect()->route('user.index');

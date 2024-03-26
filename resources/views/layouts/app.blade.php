@@ -47,8 +47,25 @@
                   <span>Volunteer List</span>
                 </a>
               </li>
-
-              <li class="sidebar-item has-sub">
+              <li class="sidebar-item">
+                <a href="{{ route('blog_list') }}" class="sidebar-link">
+                  <i class="bi bi-grid-fill"></i>
+                  <span>Blog List</span>
+                </a>
+              </li>
+              <li class="sidebar-item">
+                <a href="{{ route('skill_list') }}" class="sidebar-link">
+                  <i class="bi bi-grid-fill"></i>
+                  <span>Skill List</span>
+                </a>
+              </li>
+              <li class="sidebar-item">
+                <a href="{{ route('activity_list') }}" class="sidebar-link">
+                  <i class="bi bi-grid-fill"></i>
+                  <span>Volunteer Activity</span>
+                </a>
+              </li>
+              {{-- <li class="sidebar-item has-sub">
                 <a href="#" class="sidebar-link">
                   <i class="bi bi-stack"></i>
                   <span>Components</span>
@@ -141,7 +158,7 @@
                     >
                   </li>
                 </ul>
-              </li>
+              </li> --}}
               <li class="sidebar-item">
                 <a href="{{route('organization.index')}}" class="sidebar-link">
                   <i class="bi bi-stack"></i>
@@ -183,7 +200,7 @@
         <footer>
           <div class="footer clearfix mb-0 text-muted">
             <div class="float-start">
-              <p>2023 &copy; Mazer</p>
+              <p>{{ date('Y') }} &copy; Volunteer</p>
             </div>
             <div class="float-end">
               <p>
@@ -191,7 +208,7 @@
                 <span class="text-danger"
                   ><i class="bi bi-heart-fill icon-mid"></i
                 ></span>
-                by <a href="https://saugi.me">Saugi</a>
+                by <a href="https://saugi.me">Jannat</a>
               </p>
             </div>
           </div>

@@ -9,6 +9,7 @@ use App\Http\Controllers\Backend\PermissionController as permission;
 use App\Http\Controllers\Backend\OrganizationController as organization;
 use App\Http\Controllers\Backend\ActivityController as activity;
 use App\Http\Controllers\Backend\VolunteerController;
+use App\Http\Controllers\Backend\VolunteerActivityController;
 
 use App\Http\Controllers\vulunteerauthcontroller as userauth;
 use App\Http\Controllers\VolunteerController as volunteer;
@@ -40,6 +41,9 @@ Route::middleware(['checkauth'])->prefix('admin')->group(function () {
     Route::get('user_list',[VolunteerController::class,'user_list'])->name('user.list');
     Route::get('user_edit/{id}',[VolunteerController::class,'user_edit'])->name('user.edit');
     Route::post('user_edit/{id}',[VolunteerController::class,'user_update'])->name('user_update');
+    Route::get('blog',[VolunteerActivityController::class, 'blog_list'])->name('blog_list');
+    Route::get('skill',[VolunteerActivityController::class, 'skill_list'])->name('skill_list');
+    Route::get('activity_list',[VolunteerActivityController::class, 'activity_list'])->name('activity_list');
 });
 Route::get('/user/register', [userauth::class,'signUpForm'])->name('userregister');
 Route::post('user/register', [userauth::class,'signUpStore'])->name('userregister.store');
