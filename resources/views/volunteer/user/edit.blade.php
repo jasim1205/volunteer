@@ -30,10 +30,11 @@
                         <select name="gender" id="" class="form-control">
                             <option value="{{ $user->id }}"@if(old('gender',$user->gender)==1) selected @endif>Male</option>
                             <option value="{{ $user->id }}"@if(old('gender',$user->gender)==2) selected @endif>Female</option>
+                            <option value="{{ $user->id }}"@if(old('gender',$user->gender)==3) selected @endif>Others</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <button type="submit">Save</button>
+                        <button type="submit" class="btn btn-success">Save</button>
                     </div>
                 </form>
             </div>

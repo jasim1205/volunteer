@@ -156,7 +156,7 @@
         ***********************************-->
         <div class="footer">
             <div class="copyright">
-                <p>Copyright © Designed &amp; Developed by <a href="#" target="_blank"><i>md.jasim uddin</i></a> {{ date('Y') }}</p>
+                <p>Copyright © Designed &amp; Developed by <a href="#" target="_blank"><i>jannatul ferdaus</i></a> {{ date('Y') }}</p>
                 
             </div>
         </div>

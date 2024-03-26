@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-sm-6">
             <div class="card w-100">
-                <img src="{{ asset('public/uploads/user/'.$user->image) }}" class="w-100" alt="Profile Image" width="100%">
+                <img src="{{ asset('public/uploads/user/'.$user->image) }}" class="" alt="Profile Image" width="100%" height="500px">
             </div>
         </div>
         <div class="col-sm-6">
