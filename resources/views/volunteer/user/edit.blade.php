@@ -27,10 +27,12 @@
                     </div>
                     <div class="form-group">
                         <label for="">Gender</label>
+                        {{-- <option value="1" @if(old('status',$data->status)==1) selected @endif>Active</option>
+                                        <option value="2" @if(old('status',$data->status)==2) selected @endif>Inactive</option> --}}
                         <select name="gender" id="" class="form-control">
-                            <option value="{{ $user->id }}"@if(old('gender',$user->gender)==1) selected @endif>Male</option>
-                            <option value="{{ $user->id }}"@if(old('gender',$user->gender)==2) selected @endif>Female</option>
-                            <option value="{{ $user->id }}"@if(old('gender',$user->gender)==3) selected @endif>Others</option>
+                            <option value="1"@if(old('gender',$user->gender)==1) selected @endif>Male</option>
+                            <option value="2"@if(old('gender',$user->gender)==2) selected @endif>Female</option>
+                            <option value="3"@if(old('gender',$user->gender)==3) selected @endif>Others</option>
                         </select>
                     </div>
                     <div class="form-group">
