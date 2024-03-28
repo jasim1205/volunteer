@@ -50,17 +50,17 @@ class vulunteerauthcontroller extends Controller
                         $this->notice::success('Successfully login');
                         return redirect()->route('userdashboard');
                     }else
-                        $this->notice::error('phone number or password is wrong!');
+                        $this->notice::error('Email/Username or password is wrong!');
                         return redirect()->route('userlogin');
                 }else
                     $this->notice::error('You are not active user. Please contact to authority!');
                     return redirect()->route('userlogin');
         }else
-                $this->notice::error('phone number or password is wrong!');
+                $this->notice::error('Email/Username  or password is wrong!');
                 return redirect()->route('userlogin');
         }catch(Exception $e){
             dd($e);
-            $this->notice::error('phone number or password is wrong!');
+            $this->notice::error('Email/Username  or password is wrong!');
             return redirect()->route('userlogin');
         }
     }

@@ -46,7 +46,11 @@
                                         <option value="2" @if(old('status',$data->status)==2) selected @endif>Inactive</option>
                                     </select>
                                 </div>
-                                <button type="submit" class="btn btn-primary px-5 py-2 mx-5 my-3">Save</button>
+                                <div class="form-group">
+                                    <label for="basicInput">Password</label>
+                                    <input type="password" name="password" id="" class="form-control">
+                                </div>
+                                <button type="submit" class="btn btn-primary px-5 py-2  my-3">Save</button>
                             </div>
                         </div>
                     </form>
