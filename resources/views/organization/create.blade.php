@@ -36,7 +36,7 @@
                     <h4 class="card-title">Add New Organization</h4>
                 </div>
                 <div class="card-body">
-                    <form action="{{route('organization.store')}}" method="post">
+                    <form action="{{route('organization.store')}}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
                              <div class="col-md-10">
@@ -65,7 +65,11 @@
                                     <label for="basicInput">Address</label>
                                     <textarea name="address" id="" class="form-control"></textarea>
                                 </div>
-                                  <button type="submit" class="btn btn-primary px-5 py-2 mx-5 my-3">Save</button>
+                                <div class="form-group">
+                                    <label for="basicInput">Image</label>
+                                    <input type="file" name="image" class="form-control" id="basicInput"/>
+                                </div>
+                                  <button type="submit" class="btn btn-primary px-5 py-2 my-3">Save</button>
                             </div>
                         </div>
                     </form>

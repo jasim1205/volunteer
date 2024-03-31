@@ -37,6 +37,12 @@ class OrganizationController extends Controller
         $organization->about = $request->about;
         $organization->address = $request->address;
         $organization->email = $request->email;
+        if($request->hasFile('image')){
+            $imageName = rand(111,999).time().'.'.
+            $request->image->extension();
+            $request->image->move(public_path('uploads/organization'),$imageName);
+            $organization->image = $imageName;
+        };
         if($organization->save()){
             $this->notice::success('data successfully saved');
             return redirect()->route('organization.index');
@@ -72,6 +78,12 @@ class OrganizationController extends Controller
         $org->about = $request->about;
         $org->address = $request->address;
         $org->email = $request->email;
+        if($request->hasFile('image')){
+            $imageName = rand(111,999).time().'.'.
+            $request->image->extension();
+            $request->image->move(public_path('uploads/organization'),$imageName);
+            $org->image = $imageName;
+        };
         if($org->save()){
             $this->notice::success('data successfully Updated');
             return redirect()->route('organization.index');

@@ -10,12 +10,14 @@ use App\Http\Controllers\Backend\OrganizationController as organization;
 use App\Http\Controllers\Backend\ActivityController as activity;
 use App\Http\Controllers\Backend\VolunteerController;
 use App\Http\Controllers\Backend\VolunteerActivityController;
+use App\Http\Controllers\Backend\EventController as event;
 
 use App\Http\Controllers\vulunteerauthcontroller as userauth;
 use App\Http\Controllers\VolunteerController as volunteer;
 use App\Http\Controllers\BlogController as blog;
 use App\Http\Controllers\SkillController as skill;
 use App\Http\Controllers\VolunteerActivityController as volactivity;
+use App\Http\Controllers\FrontEndController as fronend;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,7 +31,7 @@ use App\Http\Controllers\VolunteerActivityController as volactivity;
 */
 Route::get('/register', [auth::class,'signUpForm'])->name('register');
 Route::post('/register', [auth::class,'signUpStore'])->name('register.store');
-Route::get('', [auth::class,'signInForm'])->name('login');
+Route::get('/login', [auth::class,'signInForm'])->name('login');
 Route::post('/login', [auth::class,'signInCheck'])->name('login.check');
 Route::get('/logout', [auth::class,'signOut'])->name('logOut');
 
@@ -37,6 +39,7 @@ Route::middleware(['checkauth'])->prefix('admin')->group(function () {
     Route::get('dashboard', [dashboard::class, 'index'])->name('dashboard');
     Route::resource('user', user::class);
     Route::resource('organization', organization::class);
+    Route::resource('event', event::class);
     Route::resource('activity', activity::class);
     Route::get('user_list',[VolunteerController::class,'user_list'])->name('user.list');
     Route::get('user_edit/{id}',[VolunteerController::class,'user_edit'])->name('user.edit');
@@ -60,7 +63,10 @@ Route::middleware(['checkuser'])->prefix('user')->group(function(){
     Route::resource('skill', skill::class);
     Route::resource('volactivity', volactivity::class);
 });
-
+Route::get('',[fronend::class, 'home'])->name('frontend-home');
+Route::get('organization',[fronend::class, 'organization'])->name('frontend-organization');
+Route::get('event',[fronend::class, 'event'])->name('frontend-event');
+Route::get('blog',[fronend::class, 'blog'])->name('frontend-blog');
 
 // Route::get('/', function () {
 //     return view('welcome');

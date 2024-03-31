@@ -9,7 +9,7 @@
     <div class="page-title">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
-                <h3>Organization List</h3>
+                <h3>Event List</h3>
             </div>
             <div class="col-12 col-md-6 order-md-2 order-first">
                 <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
@@ -18,7 +18,7 @@
                             <a href="{{route('dashboard')}}">Dashboard</a>
                         </li>
                         <li class="breadcrumb-item active" aria-current="page">
-                            Organization
+                            Event
                         </li>
                     </ol>
                 </nav>
@@ -28,7 +28,7 @@
     <section class="section">
         <div class="card">
             <div class="card-header d-flex">
-                <a class="btn btn-primary" href="{{route('organization.create')}}"><i class="fa fa-plus"></i>Add New</a>
+                <a class="btn btn-primary" href="{{route('event.create')}}"><i class="fa fa-plus"></i>Add New</a>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -36,12 +36,11 @@
                         <thead>
                             <tr>
                                 <th scope="col">{{__('#SL')}}</th>
-                                <th scope="col">{{__('Name')}}</th>
-                                <th scope="col">{{__('Email')}}</th>
-                                <th scope="col">{{__('Phone')}}</th>
-                                <th scope="col">{{__('Representative')}}</th>
-                                <th scope="col">{{__('About')}}</th>
+                                <th scope="col">{{__('Title')}}</th>
+                                <th scope="col">{{__('Description')}}</th>
                                 <th scope="col">{{__('Address')}}</th>
+                                <th scope="col">{{__('Start Date')}}</th>
+                                <th scope="col">{{__('End Date')}}</th>
                                 <th scope="col">{{__('Image')}}</th>
                                 <th class="white-space-nowrap">{{__('Action') }}</th>
                             </tr>
@@ -50,21 +49,20 @@
                             @forelse($data as $p)
                             <tr>
                                 <th scope="row">{{ ++$loop->index }}</th>
-                                <td>{{$p->name}}</td>
-                                <td>{{$p->email}}</td>
-                                <td>{{$p->phone}}</td>
-                                <td>{{$p->representative}}</td>
-                                <td>{{$p->about}}</td>
+                                <td>{{$p->title}}</td>
+                                <td>{{$p->description}}</td>
                                 <td>{{$p->address}}</td>
+                                <td>{{$p->start_date}}</td>
+                                <td>{{$p->end_date}}</td>
                                 <td>
-                                    <img src="{{ asset('public/uploads/organization/'.$p->image) }}" alt="" width="50px">
+                                    <img src="{{ asset('public/uploads/event/'.$p->image) }}" alt="" width="50px">
                                 </td>
                                 
                                 <td class="white-space-nowrap">
-                                    <a href="{{route('organization.edit',encryptor('encrypt',$p->id))}}" class="text-warning">
+                                    <a href="{{route('event.edit',encryptor('encrypt',$p->id))}}" class="text-warning">
                                         <i class="fa fa-edit">Edit</i>
                                     </a>
-                                     <form action="{{ route('organization.destroy', encryptor('encrypt',$p->id))}}" method="post" onsubmit="return confirm('Are you sure you want to delete this item?');">
+                                     <form action="{{ route('event.destroy', encryptor('encrypt',$p->id))}}" method="post" onsubmit="return confirm('Are you sure you want to delete this item?');">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" style="border:none;background:none;">
