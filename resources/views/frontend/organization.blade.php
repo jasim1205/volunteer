@@ -5,6 +5,7 @@
         <!-- Organization profiles -->
         @foreach($org as $value)
         <div class="organization">
+            
             <h3>{{ $value->name }}</h3>
             <img src="{{ asset('public/uploads/organization/'.$value->image) }}" alt="" width="100%" height="200px">
             <p>{{ $value->about }}</p>

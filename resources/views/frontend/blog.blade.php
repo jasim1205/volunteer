@@ -1,9 +1,13 @@
 @extends('frontend.layout.master')
 @section('content')
   <div class="container">
-        <h2>Latest Posts</h2>
+        <h2>Latest Blog</h2>
         @foreach($blog as $b)
         <div class="blog-post">
+            <div class="d-flex mb-3">
+                <img src="{{ asset('public/uploads/user/'.$b->volunteer->image) }}" class="rounded-circle" width="50px" alt="adfsd">
+                <p class="mx-3 fw-bold">{{ $b->volunteer->name }}</p>
+            </div>
             <h3>{{ $b->title }}</h3>
             <img src="{{ asset('public/uploads/blog/'.$b->blog_image) }}" alt="" width="100%" height="200px">
             <p class="post-meta">{{ $b->blog_details }}</p>

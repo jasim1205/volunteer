@@ -2,12 +2,12 @@
 @section('content')
 <div class="container-fluid">
     <div class="row">
-        <div class="col-lg-3 col-sm-6">
+        <div class="col-lg-6 col-sm-6">
             <div class="card">
                 <div class="stat-widget-two card-body">
                     <div class="stat-content">
-                        <div class="stat-text">Today Expenses </div>
-                        <div class="stat-digit"> <i class="fa fa-usd"></i>8500</div>
+                        <div class="stat-text">Today Blog </div>
+                        <div class="stat-digit"></i>{{ $blog }}</div>
                     </div>
                     <div class="progress">
                         <div class="progress-bar progress-bar-success w-85" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
@@ -15,20 +15,20 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-3 col-sm-6">
+        {{-- <div class="col-lg-6 col-sm-6">
             <div class="card">
                 <div class="stat-widget-two card-body">
                     <div class="stat-content">
-                        <div class="stat-text">Income Detail</div>
-                        <div class="stat-digit"> <i class="fa fa-usd"></i>7800</div>
+                        <div class="stat-text">Total Join Activity</div>
+                        <div class="stat-digit"> <i class="fa fa-usd"></i></div>
                     </div>
                     <div class="progress">
-                        <div class="progress-bar progress-bar-primary w-75" role="progressbar" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="progress-bar progress-bar-primary w-75" role="progressbar" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100">{{ $activity }}</div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-lg-3 col-sm-6">
+        </div> --}}
+        {{-- <div class="col-lg-3 col-sm-6">
             <div class="card">
                 <div class="stat-widget-two card-body">
                     <div class="stat-content">
@@ -54,7 +54,7 @@
                 </div>
             </div>
             <!-- /# card -->
-        </div>
+        </div> --}}
         <!-- /# column -->
     </div>
     {{-- <div class="row">

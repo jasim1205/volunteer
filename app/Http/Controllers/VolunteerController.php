@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\volunteer;
+use App\Models\Blog;
+use App\Models\volunteerActivity;
 use Illuminate\Http\Request;
 
 class VolunteerController extends Controller
@@ -12,8 +14,10 @@ class VolunteerController extends Controller
      */
     public function index()
     {
+        $blog = Blog::where('volunteer_id',currentUserId())->count();
+        // $activity = volunteerActivity::where('volunteer_id',currentUserId())->count();
         $user = volunteer::find(currentUserId());
-        return view('volunteer.dashboard',compact('user'));
+        return view('volunteer.dashboard',compact('user','blog'));
     }
     public function myProfile()
     {

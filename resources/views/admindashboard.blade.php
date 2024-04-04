@@ -15,10 +15,10 @@
                 </div>
               </div>
               <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                <h6 class="text-muted font-semibold">
-                  Profile Views
+                <h6 class="text-muted font-semibold text-uppercase">
+                  Total organization
                 </h6>
-                <h6 class="font-extrabold mb-0">112.000</h6>
+                <h6 class="font-extrabold mb-0">{{ $org }}</h6>
               </div>
             </div>
           </div>
@@ -36,8 +36,8 @@
                 </div>
               </div>
               <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                <h6 class="text-muted font-semibold">Followers</h6>
-                <h6 class="font-extrabold mb-0">183.000</h6>
+                <h6 class="text-muted font-semibold text-uppercase">Total Event</h6>
+                <h6 class="font-extrabold mb-0">{{ $event }}</h6>
               </div>
             </div>
           </div>
@@ -55,8 +55,8 @@
                 </div>
               </div>
               <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                <h6 class="text-muted font-semibold">Following</h6>
-                <h6 class="font-extrabold mb-0">80.000</h6>
+                <h6 class="text-muted font-semibold text-uppercase">Total Blog</h6>
+                <h6 class="font-extrabold mb-0">{{ $blog }}</h6>
               </div>
             </div>
           </div>
@@ -74,27 +74,16 @@
                 </div>
               </div>
               <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                <h6 class="text-muted font-semibold">Saved Post</h6>
-                <h6 class="font-extrabold mb-0">112</h6>
+                <h6 class="text-muted font-semibold text-uppercase">Total Activity</h6>
+                <h6 class="font-extrabold mb-0">{{ $activity }}</h6>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-12">
-        <div class="card">
-          <div class="card-header">
-            <h4>Profile Visit</h4>
-          </div>
-          <div class="card-body">
-            <div id="chart-profile-visit"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row">
+    
+    {{-- <div class="row">
       <div class="col-12 col-xl-4">
         <div class="card">
           <div class="card-header">
@@ -228,7 +217,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> --}}
 </div>
 
 @endsection
