@@ -22,7 +22,7 @@ class FrontEndController extends Controller
         return view('frontend.event',compact('event'));
     }
     public function blog(){
-        $blog = Blog::get();
+        $blog = Blog::orderBy('id','desc')->get();
         return view('frontend.blog',compact('blog'));
     }
     // public function home(){

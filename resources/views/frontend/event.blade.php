@@ -8,7 +8,8 @@
             <img src="{{ asset('public/uploads/event/'.$value->image) }}" alt="" width="100%" height="200px">
             <p>{{ $value->description }}</p>
             <p>{{ $value->address }}</p>
-            <p>{{ $value->start_date }}</p>
+            <p>Start Date:{{ date($value->start_date) }}</p>
+            <p>End Date:{{ $value->end_date }}</p>
             {{-- <a href="#">Visit Website</a> --}}
         </div>
         @empty
